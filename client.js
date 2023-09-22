@@ -17,6 +17,11 @@ function addDiv(event){
     totalSalary += Number(userSalary);
     console.log(`monthlySalary: ${totalSalary/12}`);
     
+    let monthlyTotal = document.querySelector('#monthly-total');
+    monthlyTotal.innerHTML = `
+    Total Monthly Salary: ${totalSalary/12}`
+    changeColor()
+    
         let container = document.querySelector('#container');
         container.innerHTML += `
         <div> 
@@ -26,24 +31,28 @@ function addDiv(event){
         </button>
     </div>
         `;
-        let monthlyTotal = document.querySelector('#monthly-total');
-        monthlyTotal.innerHTML = `
-        Total Monthly Salary: ${totalSalary/12}
-        `
-    }
-    
-    
-    function changeColor(){
-      console.log(changeColor);
-        if (totalSalary/12 >= 20000) {
-        let monthlyTotal = document.querySelector('#monthly-total');
-        monthlyTotal.style.backgroundColor == 'red';
-        monthlyTotal.innerHTML == 'red';
-
-       }
         
+}
+function changeColor(){
+    console.log('changeColor',totalSalary/12);
+       if (totalSalary/12 >= 20000) {
+           let monthlyTotal = document.querySelector('#monthly-total');
+           monthlyTotal.style.backgroundColor = 'red';
+          // monthlyTotal.innerHTML == 'red';
+           console.log('changeColorToRed');
+      }
+   }
+    
+    //function changeColor(){
+     //console.log(changeColor);
+        //if (totalSalary/12 >= 20000) {
+          //  let monthlyTotal = document.querySelector('#monthly-total');
+          //  monthlyTotal.style.backgroundColor == 'red';
+           // monthlyTotal.innerHTML == 'red';
+      // }
+    //}
+   //changeColor();
 
-    }
     function removeDiv(event) {
         console.log('remove div', event.target);
         event.target.parentElement.remove();
